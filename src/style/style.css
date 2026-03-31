@@ -7,11 +7,12 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px rgba(17, 197, 20, 0.8);
 }
 
 fieldset {
     width: 400px;
-    height: 200px;
     border: 2px solid white;
     padding: 20px;
+    text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px rgba(131, 4, 120, 0.8);
 }
