@@ -20,10 +20,19 @@ async function getISSData() {
 
 function displayISSData(data) {
         const issDataDiv = document.getElementById("issData");
+
+    const latitude = parseFloat(data.latitude.toFixed(2));
+    const longitude = parseFloat(data.longitude.toFixed(2));
+    const altitude = parseFloat(data.altitude.toFixed(2));
+    const velocity = parseFloat(data.velocity.toFixed(2));
+
             issDataDiv.innerHTML = `
-            <p>Latitude: ${data.latitude}</p>
-            <p>Longitude: ${data.longitude}</p>
-            <p>Altitude: ${data.altitude} km</p>
-            <p>Velocity: ${data.velocity} km/h</p>
+            <p>Latitude: ${latitude}</p>
+            <p>Longitude: ${longitude}</p>
+            <p>Altitude: ${altitude} km</p>
+            <p>Velocity: ${velocity} km/h</p>
         `;
 }
+
+setInterval(getISSData, refreshInterval);
+getISSData();
