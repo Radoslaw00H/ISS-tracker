@@ -18,19 +18,32 @@ async function getISSData() {
     }
 }
 
-function displayISSData(data) {
-        const issDataDiv = document.getElementById("issData");
+/*historyTrack() {
+    dataHistory = JSON.parse(localStorage.getItem("issHistory")) || [];
+    const currentPosition = {
+        latitude: parseFloat(data.latitude.toFixed(7)),
+        longitude: parseFloat(data.longitude.toFixed(7)),
+        timestamp: new Date().toLocaleTimeString()
+    };
+    dataHistory.push(currentPosition);
+    localStorage.setItem("issHistory", JSON.stringify(dataHistory));
+    return dataHistory.length;
+}*/
 
-    const latitude = parseFloat(data.latitude.toFixed(2));
-    const longitude = parseFloat(data.longitude.toFixed(2));
-    const altitude = parseFloat(data.altitude.toFixed(2));
-    const velocity = parseFloat(data.velocity.toFixed(2));
+function displayISSData(data) {
+    const issDataDiv = document.getElementById("issData");
+
+        const latitude = parseFloat(data.latitude.toFixed(7));
+        const longitude = parseFloat(data.longitude.toFixed(7));
+        const altitude = parseFloat(data.altitude.toFixed(3));
+        const velocity = parseFloat(data.velocity.toFixed(0));
 
             issDataDiv.innerHTML = `
             <p>Latitude: ${latitude}</p>
             <p>Longitude: ${longitude}</p>
             <p>Altitude: ${altitude} km</p>
             <p>Velocity: ${velocity} km/h</p>
+            <p>Last Updated: ${new Date().toLocaleTimeString()}</p>
         `;
 }
 
